@@ -1,4 +1,4 @@
-class TodoList < ActiveRecord::Base
+class TodoList < ApplicationRecord
   has_many :todos
 
 end
