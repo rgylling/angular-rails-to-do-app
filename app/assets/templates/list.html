@@ -1,2 +1,8 @@
-
+<h1>List page</h1>
 <h1 ng-bind="vm.test"></h1>
+
+<div ng-repeat="list in vm.lists">
+  <h3 ng-bind="list.name"> </h3>
+    <h3 ng-bind="list.id"> </h3>
+
+</div>
