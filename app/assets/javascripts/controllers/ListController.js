@@ -4,7 +4,7 @@
 
     angular
         .module('todoApp')
-        .controller('ListController',['ListFactory' function(ListFactory) {
+        .controller('ListController',['ListFactory', function(ListFactory) {
             var vm = this
             vm.test = "Testing"
 
