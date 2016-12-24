@@ -23,5 +23,9 @@
               vm.list = data
 
             }
+
+            vm.addTodo = function () {
+
+            }
         }])
 }())
