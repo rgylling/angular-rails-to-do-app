@@ -1,7 +1,14 @@
 <h1> todo list test </h1>
 <h1 ng-bind="vm.test"></h1>
 
-<div ng-repeat="list in vm.list">
-  <h3 ng-bind="list.name"> </h3>
+
+  <h3 ng-bind="vm.list.name"> </h3>
+
+
+  <div ng-repeat="todo in vm.list.todos">
+    <h3 ng-bind="todo.description"> </h3>
+      <h3 ng-bind="todo.complete"> </h3>
+
+  </div>
 
 </div>

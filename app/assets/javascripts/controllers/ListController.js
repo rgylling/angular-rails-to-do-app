@@ -14,14 +14,14 @@
                        .then(setLists)
             function setLists(data) {
               vm.lists = data
-              console.log(data)
+
             }
 
             ListFactory.getList(listId)
                        .then(setList)
             function setList(data) {
               vm.list = data
-              console.log(data + "my list data")
+
             }
         }])
 }())
