@@ -4,11 +4,11 @@
 
     angular
         .module('todoApp')
-        .controller('TodoController',['ListFactory', function(ListFactory) {
+        .controller('TodoController',['TodoFactory', function(TodoFactory) {
             var vm = this
             vm.test = "Testing todos"
 
-            // ListFactory.getLists()
+            // TodoFactory.getLists()
             //            .then(setLists)
             // function setLists(data) {
             //   vm.lists = data

@@ -19,7 +19,7 @@
               .state('todolist', {
                   url: '/lists/:id',
                   templateUrl: 'todolist.html',
-                  controller: 'TodoController as vm'
+                  controller: 'ListController as vm'
               })
 
 
