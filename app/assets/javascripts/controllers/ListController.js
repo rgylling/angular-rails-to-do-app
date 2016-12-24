@@ -25,7 +25,7 @@
             }
 
             vm.addTodo = function () {
-
+              console.log("added")
             }
         }])
 }())
