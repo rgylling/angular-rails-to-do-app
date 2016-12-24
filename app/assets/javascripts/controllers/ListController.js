@@ -7,6 +7,7 @@
         .controller('ListController',['ListFactory', '$stateParams', function(ListFactory, $stateParams) {
             var vm = this
             var listId = $stateParams.id;
+            console.log(listId)
 
             vm.test = "Testing"
 
@@ -17,15 +18,6 @@
 
             }
 
-            ListFactory.getList(listId)
-                       .then(setList)
-            function setList(data) {
-              vm.list = data
 
-            }
-
-            vm.addTodo = function () {
-              console.log("added")
-            }
         }])
 }())

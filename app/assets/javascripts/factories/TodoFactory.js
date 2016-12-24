@@ -6,12 +6,11 @@
         .module('todoApp')
         .factory('TodoFactory', ['$http', function($http) {
             return {
-                getLists: getLists,
-
+              getList: getList,
             }
 
-            function getLists() {
-                return $http.get('/todo_lists')
+            function getList(id) {
+                return $http.get('/todo_lists/' + id)
                             .then(handleResponse)
                             .catch(handleError)
             }
