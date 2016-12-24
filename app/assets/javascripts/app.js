@@ -16,6 +16,12 @@
                   controller: 'ListController as vm'
               })
 
+              .state('todolist', {
+                  url: '/lists/:id',
+                  templateUrl: 'todolist.html',
+                  controller: 'TodoController as vm'
+              })
+
 
           $urlRouterProvider.otherwise('/')
           $locationProvider.html5Mode(true);
