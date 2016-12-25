@@ -2,13 +2,13 @@
   'use strict'
 
   angular
-      .module('todoApp', ['ui.router', 'templates'])
+      .module('todoApp', ['ui.router', 'templates', 'xeditable', 'ngMaterial'])
 
       .config([
           "$httpProvider", function($httpProvider) {
               $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
           }
-      ])      
+      ])
 
       .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
           $stateProvider
@@ -32,6 +32,8 @@
           $urlRouterProvider.otherwise('/')
           $locationProvider.html5Mode(true);
       })
-
+      .run(function(editableOptions) {
+        editableOptions.theme = 'bs3';
+      });
 
 }())

@@ -8,20 +8,27 @@
 
   <form ng-show="showme" ng-submit="vm.handleCreate(); showme=false">
     <input type="text"
-    placeholder="New Todo"
+    class="new-todo"
+    placeholder="Type Your Todo"
     ng-model="vm.todo.description"
     ng-blur="vm.handleCreate(); showme=false"
+    required
     >
   </form>
 
   <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in vm.list.todos">
-    <br>
-    <div>
-      <input ng-checked="todo.complete" type="checkbox" ng-bind="todo.complete" ng-click="vm.toggleComplete(todo, todo.id)">
-      <label ng-class="todo.complete ? 'completed' : 'not-complete'" ng-click="editing = true"  ng-hide="editing" class="editing-label">{{todo.description}}</label>
-      <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.description" class="editing-label" type="text"/>
-      <button ng-click="vm.handleEdit(todo,todo.id)">Save</button>
-      <button ng-click="vm.handleDelete(todo.id)">Delete</button>
+
+    <!-- <a href="#" editable-text="todo.description">{{ todo.description || 'empty' }}</a> -->
+
+    <div class="item-div">
+      <input class="pull-left" ng-checked="todo.complete" type="checkbox" ng-bind="todo.complete" ng-click="vm.toggleComplete(todo, todo.id)">
+      <a ng-class="todo.complete ? 'completed' : 'not-complete'" href="#" editable-text="todo.description">{{ todo.description || 'empty' }}</a> 
+      <!-- <label ng-class="todo.complete ? 'completed' : 'not-complete'" ng-click="editing = true"  ng-hide="editing" class="editing-label">{{todo.description}}</label> -->
+      <!-- <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.description" class="editing-label" type="text"/> -->
+      <div class="pull-right">
+        <a ng-click="vm.handleEdit(todo,todo.id)">Save</a>
+        <a ng-click="vm.handleDelete(todo.id)">Delete</a>
+      </div>
     </div>
 
 

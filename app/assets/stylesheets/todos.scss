@@ -7,34 +7,55 @@
 .list {
   background: #fff;
   text-align: left; }
-  .list .item {
+.list .item {
     border-bottom: 2px solid #edeff0;
-    padding: 17px 0 18px 17px; }
-    .list .item label {
-      padding-left: 5px;
-      cursor: pointer; }
-    .list .item .editing-label {
-      margin-left: 5px;
-    }
-    .list .item input.editing-label {
-      border: solid 1px red;
-      width:100%;
-    }
-  .list .edited label:after {
+ }
+
+.list .item .item-div {
+      padding: 20px 0px 20px 0px;
+}
+
+
+
+.list .edited label:after {
     content: " edited";
     text-transform: uppercase;
     color: #a7b9c4;
     font-size: 14px;
     padding-left: 5px; }
-  .list label .completed {
-    text-decoration: line-through; }
 
 
 
-    .completed {
-      text-decoration: line-through;
-    }
+
+a.ng-scope.ng-binding.editable.editable-click.completed {
+  text-decoration: line-through;
+}
 
     input[type=checkbox], input[type=radio] {
     zoom: 2.5;
+    margin-top:0px;
 }
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: initial;
+}
+
+.new-todo {
+  width: 100%;
+padding: 15px;
+font-size: 25px;
+text-align: center;
+border-top: transparent;
+border-left: transparent;
+border-right: transparent;
+}
+
+.editable-click, a.editable-click {
+    text-decoration: none;
+    color: #428bca;
+    border-bottom: none;
+
+  }
