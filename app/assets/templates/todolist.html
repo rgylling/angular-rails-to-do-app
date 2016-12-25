@@ -12,7 +12,6 @@
     class="new-todo"
     placeholder="Type Your Todo"
     ng-model="vm.todo.description"
-    ng-blur="vm.handleCreate(); showme=false"
     required
     >
   </form>
@@ -38,13 +37,13 @@
 
 
   </div>
-  <a ng-click="myFilter = {null}"> All </a>
-  <a ng-click="myFilter = {complete: false}"> Not Complete </a>
-  <a ng-click="myFilter = {complete: true}"> Completed </a>
+  <div class="filter-div text-center">
+    <a href="#" ng-class="{'selected'  :status === 'all'}" ng-click="myFilter = {null}; status = 'all'">All</a>
+    <a href="#" class="my-filter" ng-class="{'selected'  :status === 'active'}" ng-click="myFilter = {complete: false}; status = 'active' ">Active</a>
+    <a href="#" ng-class="{'selected'  :status === 'completed'}" ng-click="myFilter = {complete: true}; status = 'completed'  ">Completed</a>
+  </div>
 
 
-
-  <br>
 
 
 </div>
