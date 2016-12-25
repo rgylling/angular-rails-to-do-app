@@ -7,12 +7,21 @@
         .factory('TodoFactory', ['$http', function($http) {
             return {
               getList: getList,
+              createTodo: createTodo
             }
+
+
 
             function getList(id) {
                 return $http.get('/todo_lists/' + id)
                             .then(handleResponse)
                             .catch(handleError)
+            }
+
+            function createTodo(listId, todo) {
+              return $http.post('/todo_lists/' + listId + '/todos/', todo)
+                          .then(handleResponse)
+                          .catch(handleError)
             }
 
 

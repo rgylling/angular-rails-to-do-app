@@ -11,9 +11,10 @@
 
   </div>
 
-  <form ng-submit="vm.addTodo()">
+  <form ng-submit="vm.handleCreate()">
     <input type="text"
-    placeholder="New Todo">
+    placeholder="New Todo"
+    ng-model="vm.todo.description">
     <input type="submit" value="Submit">
   </form>
 
