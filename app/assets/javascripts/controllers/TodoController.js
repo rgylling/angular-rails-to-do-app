@@ -51,7 +51,6 @@
               console.log("getting list")
             }
 
-
             vm.handleCreate = function(){
               vm.createTodo(listId, vm.todo);
             }
@@ -62,6 +61,9 @@
             vm.handleDelete = function(id){
               vm.deleteTodo(listId, id);
             }
+
+            vm.currentFilter = [{type: 1, complete: true}]
+            
 
         }])
 }())
