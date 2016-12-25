@@ -8,7 +8,7 @@
   <div ng-repeat="todo in vm.list.todos">
     <h3 ng-bind="todo.description"> </h3>
       <h3 ng-bind="todo.complete"> </h3>
-
+      <button ng-click="vm.handleDelete(todo.id)">Delete</button>
   </div>
 
   <form ng-submit="vm.handleCreate()">

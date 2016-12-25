@@ -24,11 +24,20 @@
                          .then(vm.getList(listId))
             }
 
+            vm.deleteTodo = function (listId, todoId) {
+              TodoFactory.deleteTodo(listId, todoId)
+                         .then(vm.getList(listId))
+            }
+
 
             vm.getList(listId)
 
             vm.handleCreate = function(){
-              vm.createTodo(listId, vm.todo);
+              vm.createTodo(listId, vm.todo);            
+            }
+
+            vm.handleDelete = function(id){
+              vm.deleteTodo(listId, id);
             }
 
         }])

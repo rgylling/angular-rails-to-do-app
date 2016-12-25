@@ -7,7 +7,8 @@
         .factory('TodoFactory', ['$http', function($http) {
             return {
               getList: getList,
-              createTodo: createTodo
+              createTodo: createTodo,
+              deleteTodo: deleteTodo
             }
 
 
@@ -20,6 +21,12 @@
 
             function createTodo(listId, todo) {
               return $http.post('/todo_lists/' + listId + '/todos/', todo)
+                          .then(handleResponse)
+                          .catch(handleError)
+            }
+
+            function deleteTodo(listId, todoId) {
+              return $http.delete('/todo_lists/' + listId + '/todos/' + todoId)
                           .then(handleResponse)
                           .catch(handleError)
             }
