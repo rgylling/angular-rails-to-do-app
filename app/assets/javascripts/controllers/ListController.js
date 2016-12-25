@@ -20,11 +20,19 @@
               ListFactory.createList(list)
                          .then(function success(response){
                            vm.getLists();
+                           vm.list = { id: null, name: '' }
                          });
             };
 
             vm.editList = function (listId, list) {
               ListFactory.editList(listId, list)
+                         .then(function success(response){
+                           vm.getLists();
+                          });
+            };
+
+            vm.deleteList = function (listId) {
+              ListFactory.deleteList(listId)
                          .then(function success(response){
                            vm.getLists();
                           });
@@ -45,6 +53,10 @@
             vm.handleEdit = function(listId,list){
               console.log(listId)
               vm.editList(listId, list);
+            }
+
+            vm.handleDelete = function(id){
+              vm.deleteList(id);
             }
 
 

@@ -8,7 +8,8 @@
             return {
                 getLists: getLists,
                 createList: createList,
-                editList: editList
+                editList: editList,
+                deleteList: deleteList
             }
 
             function getLists() {
@@ -25,6 +26,12 @@
 
             function editList(listId, list) {
               return $http.put('/todo_lists/' + listId, list)
+                          .then(handleResponse)
+                          .catch(handleError)
+            }
+
+            function deleteList(listId) {
+              return $http.delete('/todo_lists/' + listId)
                           .then(handleResponse)
                           .catch(handleError)
             }
