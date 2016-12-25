@@ -6,11 +6,21 @@
 
 
   <div ng-repeat="todo in vm.list.todos">
-    <h3 ng-bind="todo.description"> </h3>
-    <h3 ng-bind="todo.complete"> </h3>
+    <br>
+    <div>
+      <input type="checkbox" ng-bind="todo.complete">
+      <h3 style="display: inline" ng-bind="todo.description"> </h3>
+      <h3 style="display: inline" ng-bind="todo.id"> </h3>
+
+    </div>
+    <br>
+    <button ng-click="vm.handleEdit(todo,todo.id)">Edit</button>
     <button ng-click="vm.handleDelete(todo.id)">Delete</button>
+
+
   </div>
 
+  <br>
   <form ng-submit="vm.handleCreate()">
     <input type="text"
     placeholder="New Todo"

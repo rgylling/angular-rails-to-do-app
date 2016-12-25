@@ -1,12 +1,18 @@
 class TodosController < ApplicationController
-  before_action :set_list, only: [:destroy, :create]
-  before_action :set_todo, only: [:destroy]
+  before_action :set_list, only: [:destroy, :create, :update]
+  before_action :set_todo, only: [:destroy, :update]
 
   def create
     todo = @list.todos.new(todo_params)
     if todo.save
       render json: todo
     end
+  end
+
+  def update
+    if @todo.update(todo_params)
+    end
+
   end
 
   def destroy

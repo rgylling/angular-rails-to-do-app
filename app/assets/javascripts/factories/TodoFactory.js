@@ -8,7 +8,8 @@
             return {
               getList: getList,
               createTodo: createTodo,
-              deleteTodo: deleteTodo
+              deleteTodo: deleteTodo,
+              editTodo: editTodo
             }
 
 
@@ -21,6 +22,12 @@
 
             function createTodo(listId, todo) {
               return $http.post('/todo_lists/' + listId + '/todos/', todo)
+                          .then(handleResponse)
+                          .catch(handleError)
+            }
+
+            function editTodo(listId, todo, todoId) {
+              return $http.put('/todo_lists/' + listId + '/todos/' + todoId, todo)
                           .then(handleResponse)
                           .catch(handleError)
             }
