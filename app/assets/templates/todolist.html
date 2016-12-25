@@ -1,20 +1,21 @@
 
 
 
-
+<div class="list">
   <h1 ng-bind="vm.list.name"> </h1>
 
 
-  <div ng-repeat="todo in vm.list.todos">
+  <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in vm.list.todos">
     <br>
     <div>
       <input type="checkbox" ng-bind="todo.complete">
-      <h3 style="display: inline" ng-bind="todo.description"> </h3>
-      <h3 style="display: inline" ng-bind="todo.id"> </h3>
+      <label  ng-hide="editing" class="editing-label">{{todo.description}}</label>
+      <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.description" class="editing-label" type="text"/>
 
     </div>
     <br>
-    <button ng-click="vm.handleEdit(todo,todo.id)">Edit</button>
+    <button ng-click="editing = !editing">Edit</button>
+    <button ng-click="vm.handleEdit(todo,todo.id)">Save</button>
     <button ng-click="vm.handleDelete(todo.id)">Delete</button>
 
 

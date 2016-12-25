@@ -1,3 +1,30 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.list {
+  background: #fff;
+  text-align: left; }
+  .list .item {
+    border-bottom: 2px solid #edeff0;
+    padding: 17px 0 18px 17px; }
+    .list .item label {
+      padding-left: 5px;
+      cursor: pointer; }
+    .list .item .editing-label {
+      margin-left: 5px;
+      border-radius: 2px;
+      border: 2px solid #a7b9c4;
+      font-size: 16px;
+      padding: 15px 10px 15px 10px;
+      width: 80%; }
+  .list .edited label:after {
+    content: " edited";
+    text-transform: uppercase;
+    color: #a7b9c4;
+    font-size: 14px;
+    padding-left: 5px; }
+  .list .completed label {
+    text-decoration: line-through; }
