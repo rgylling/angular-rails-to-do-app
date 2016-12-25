@@ -9,31 +9,42 @@
             var listId = $stateParams.id;
             vm.todo = { id: null, todo_list_id: listId, description: '', complete: false };
 
+            function setList(data) {
+              vm.list = data;
+              console.log("getting list")
+            }
+
             vm.getList = function(listId) {
               TodoFactory.getList(listId)
-                         .then(setList)
-              function setList(data) {
-                vm.list = data
-                console.log("still getting it")
-              }
-          }
+                         .then(function (data){
+                           setList(data)
+              });
+            };
 
 
             vm.createTodo = function (listId, todo) {
               TodoFactory.createTodo(listId, todo)
-                         .then(vm.getList(listId))
-            }
+                         .then(function success(response){
+                           vm.getList(listId);
+                           vm.todo = '';
+                         });
+            };
+
+
 
             vm.deleteTodo = function (listId, todoId) {
               TodoFactory.deleteTodo(listId, todoId)
-                         .then(vm.getList(listId))
-            }
+                         .then(function success(response){
+                           vm.getList(listId);
+                           vm.todo = '';
+                          });
+            };
 
 
-            vm.getList(listId)
+            vm.list = vm.getList(listId)
 
             vm.handleCreate = function(){
-              vm.createTodo(listId, vm.todo);            
+              vm.createTodo(listId, vm.todo);
             }
 
             vm.handleDelete = function(id){
