@@ -8,13 +8,12 @@
   <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in vm.list.todos">
     <br>
     <div>
-      <input type="checkbox" ng-bind="todo.complete">
-      <label  ng-hide="editing" class="editing-label">{{todo.description}}</label>
+      <input ng-checked="todo.complete" type="checkbox" ng-bind="todo.complete" ng-click="vm.toggleComplete(todo, todo.id)">
+      <label ng-class="todo.complete ? 'completed' : 'not-complete'" ng-click="editing = true"  ng-hide="editing" class="editing-label">{{todo.description}}</label>
       <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.description" class="editing-label" type="text"/>
 
     </div>
     <br>
-    <button ng-click="editing = !editing">Edit</button>
     <button ng-click="vm.handleEdit(todo,todo.id)">Save</button>
     <button ng-click="vm.handleDelete(todo.id)">Delete</button>
 

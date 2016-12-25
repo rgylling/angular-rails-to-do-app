@@ -51,6 +51,17 @@
               console.log("getting list")
             }
 
+            vm.toggleComplete = function (todo, todoId){
+              if (todo.complete === false) {
+                todo.complete = true;
+              } else {
+                todo.complete = false;
+              }
+
+              vm.editTodo(listId, todo, todoId)
+
+            }
+
             vm.handleCreate = function(){
               vm.createTodo(listId, vm.todo);
             }
