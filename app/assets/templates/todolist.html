@@ -21,15 +21,15 @@
     <!-- <a href="#" editable-text="todo.description">{{ todo.description || 'empty' }}</a> -->
 
     <div class="item-div">
-      <md-checkbox ng-change="vm.handleEdit(todo,todo.id)" aria-label="Checkbox 1" ng-model="todo.complete">
+      <md-checkbox class="check-box" ng-change="vm.handleEdit(todo,todo.id)" aria-label="Checkbox 1" ng-model="todo.complete">
       </md-checkbox>
       <!-- <input class="pull-left" ng-checked="todo.complete" type="checkbox" ng-bind="todo.complete" ng-click="vm.toggleComplete(todo, todo.id)"> -->
-      <a ng-class="todo.complete ? 'completed' : 'not-complete'" href="#" editable-text="todo.description">{{ todo.description || 'empty' }}</a>
+      <a onbeforesave="vm.handleEdit(todo,todo.id)" blur="submit" buttons="no" class="todo-description" ng-class="todo.complete ? 'completed' : 'not-complete'" href="#" editable-text="todo.description">{{ todo.description || 'empty' }}</a>
       <!-- <label ng-class="todo.complete ? 'completed' : 'not-complete'" ng-click="editing = true"  ng-hide="editing" class="editing-label">{{todo.description}}</label> -->
       <!-- <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.description" class="editing-label" type="text"/> -->
       <div class="pull-right">
-        <a ng-click="vm.handleEdit(todo,todo.id)">Save</a>
-        <a ng-click="vm.handleDelete(todo.id)">Delete</a>
+        <!-- <a href="#" ng-click="vm.handleEdit(todo,todo.id)">Save</a> -->
+        <a class="delete-btn" href="#" ng-click="vm.handleDelete(todo.id)">Delete</a>
       </div>
     </div>
 

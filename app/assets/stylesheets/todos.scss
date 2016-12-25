@@ -59,3 +59,29 @@ border-right: transparent;
     border-bottom: none;
 
   }
+
+  md-checkbox.md-checked.check-box .md-icon {
+    background-color: rgba(16,108,200,0.87);
+}
+
+.delete-btn {
+  color:#da0e0e;
+}
+
+.todo-description {
+  font-size:18px;
+}
+
+input.editable-input {
+  font-size:18px;
+  height:50px;
+  width:100% !important;
+}
+
+.editable-controls.form-group {
+  width:100%;
+}
+
+form.form-inline {
+  width:80%;
+}
