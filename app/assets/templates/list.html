@@ -1,8 +1,37 @@
-<h1>List page</h1>
-<h1 ng-bind="vm.test"></h1>
+<div class="list">
 
-<div ng-repeat="list in vm.lists">
-  <h3 ng-bind="list.name"> </h3>
-    <h3 ng-bind="list.id"> </h3>
+<h1 class=" list-name text-center">List page</h1>
 
+<div class="margin-b-20">
+  <a class="add-btn" href="" ng-click="showme=true">+ Add a List</a>
+</div>
+<form ng-show="showme" ng-submit="vm.handleCreate(); showme=false">
+  <input type="text"
+  class="new-todo"
+  placeholder="Type Your List Name"
+  ng-model="vm.list.name"
+  required
+  >
+</form>
+
+
+<div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="list in vm.lists">
+
+
+
+  <div class="item-div">
+
+
+    <a onbeforesave="vm.handleEdit(list.id, list)" blur="submit" buttons="no" class="todo-description"  href="#" editable-text="list.name">{{ list.name || 'empty' }}</a>
+
+    <div class="pull-right">
+
+      <a class="delete-btn" href="#" ng-click="vm.handleDelete(list.id)">X</a>
+    </div>
+  </div>
+
+
+
+
+</div>
 </div>

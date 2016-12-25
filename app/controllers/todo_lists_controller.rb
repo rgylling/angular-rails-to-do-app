@@ -13,7 +13,13 @@ class TodoListsController < ApplicationController
   def update
     if @list.update(list_params)
     end
+  end
 
+  def create
+    list = TodoList.new(list_params)
+    if list.save
+      render json: list
+    end
   end
 
   def destroy
@@ -24,10 +30,10 @@ class TodoListsController < ApplicationController
   private
 
   def list_params
-    params.require(:todo).permit(:name)
+    params.require(:todo_list).permit(:name)
   end
 
   def set_list
-    @list = TodoList.find_by_id(params[:id])
+    @list = TodoList.find(params[:id])
   end
 end
