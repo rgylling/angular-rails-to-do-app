@@ -9,13 +9,18 @@
             var listId = $stateParams.id;
             console.log(listId)
 
-            vm.test = "Testing"
+            vm.getLists = function() {
+              ListFactory.getLists()
+                         .then(function (data){
+                           setList(data)
+              });
+            };
 
-            ListFactory.getLists()
-                       .then(setLists)
-            function setLists(data) {
-              vm.lists = data
+            vm.lists = vm.getLists()
 
+            function setList(data) {
+              vm.lists = data;
+              console.log("getting list")
             }
 
 
