@@ -21,6 +21,7 @@
 
 
     <div class="item-div">
+
       <md-checkbox class="check-box" ng-change="vm.handleEdit(todo,todo.id)" aria-label="Checkbox 1" ng-model="todo.complete">
       </md-checkbox>
 
@@ -37,6 +38,7 @@
 
   </div>
   <div class="filter-div text-center">
+    <a href="/lists"> <i class=" back-btn fa fa-reply" aria-hidden="true"></i></a>
     <a href="#" ng-class="{'selected'  :status === 'all'}" ng-click="myFilter = {null}; status = 'all'">All</a>
     <a href="#" class="my-filter" ng-class="{'selected'  :status === 'active'}" ng-click="myFilter = {complete: false}; status = 'active' ">Active</a>
     <a href="#" ng-class="{'selected'  :status === 'completed'}" ng-click="myFilter = {complete: true}; status = 'completed'  ">Completed</a>
