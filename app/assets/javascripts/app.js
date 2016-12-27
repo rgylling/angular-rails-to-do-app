@@ -11,11 +11,19 @@
       ])
 
       .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
           $stateProvider
+
               .state('home', {
                   url: '/',
                   templateUrl: 'home.html',
               })
+
+              .state('about', {
+                  url: '/about',
+                  templateUrl: 'about.html',
+              })
+
               .state('lists', {
                   url: '/lists',
                   templateUrl: 'list.html',
