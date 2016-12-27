@@ -9,6 +9,7 @@
   </div>
 
   <form name="myForm" ng-show="showme" ng-submit="vm.handleCreate(); showme=false">
+
     <input name="myName"
      type="text"
     class="new-todo"
@@ -16,12 +17,16 @@
     ng-model="vm.todo.description"
     required="required"
     >
+
+    <div ng-messages="myForm.myName.$error"
+    ng-if="myForm.myName.$touched && myForm.myName.$error ">
+      <div class="error-message text-center" ng-message="required">Todo Required!
+      </div>
+    </div>
+
   </form>
 
-  <div ng-messages="myForm.myName.$error"
-  ng-if="myForm.myName.$touched">
-    <div class="text-center" ng-message="required">Description Required!</div>
-  </div>
+
 
   <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in vm.list.todos | filter:myFilter">
 
