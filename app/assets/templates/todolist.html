@@ -7,14 +7,21 @@
   <div class="margin-b-20">
     <a class="add-btn" href="" ng-click="showme=true">+ Add a Todo</a>
   </div>
-  <form ng-show="showme" ng-submit="vm.handleCreate(); showme=false">
-    <input type="text"
+
+  <form name="myForm" ng-show="showme" ng-submit="vm.handleCreate(); showme=false">
+    <input name="myName"
+     type="text"
     class="new-todo"
     placeholder="Type Your Todo"
     ng-model="vm.todo.description"
-    required
+    required="required"
     >
   </form>
+
+  <div ng-messages="myForm.myName.$error"
+  ng-if="myForm.myName.$touched">
+    <div class="text-center" ng-message="required">Description Required!</div>
+  </div>
 
   <div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in vm.list.todos | filter:myFilter">
 

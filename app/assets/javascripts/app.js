@@ -2,7 +2,7 @@
   'use strict'
 
   angular
-      .module('todoApp', ['ui.router', 'templates', 'xeditable', 'ngMaterial'])
+      .module('todoApp', ['ui.router', 'templates', 'xeditable', 'ngMaterial', 'ngMessages'])
 
       .config([
           "$httpProvider", function($httpProvider) {
