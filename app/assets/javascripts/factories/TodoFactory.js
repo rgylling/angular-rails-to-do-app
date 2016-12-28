@@ -40,7 +40,6 @@
 
 
             function handleResponse(response) {
-                console.log(response.data)
                 if (response.status === 200) return response.data
 
             }

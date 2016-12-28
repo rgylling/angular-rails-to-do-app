@@ -42,16 +42,13 @@
 
             function setList(data) {
               vm.lists = data;
-              console.log("getting list")
             }
 
             vm.handleCreate = function(){
-              console.log(vm.list)
               vm.createList(vm.list);
             }
 
             vm.handleEdit = function(listId,list){
-              console.log(listId)
               vm.editList(listId, list);
             }
 
