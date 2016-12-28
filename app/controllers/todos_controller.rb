@@ -6,17 +6,25 @@ class TodosController < ApplicationController
     todo = @list.todos.new(todo_params)
     if todo.save
       render json: todo
+    else
+      render json: { errors: "Error creating Todo." }
     end
   end
 
   def update
     if @todo.update(todo_params)
+      render nothing: true
+    else
+      render json: { errors: "Error updating Todo."}
     end
-
   end
 
   def destroy
-    @todo.destroy
+    if @todo.destroy
+      render nothing: true
+    else
+      render json: { errors: "Error deleting Todo." }
+    end
   end
 
   private

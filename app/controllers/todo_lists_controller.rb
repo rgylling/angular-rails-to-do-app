@@ -7,11 +7,18 @@ class TodoListsController < ApplicationController
   end
 
   def show
-    render json: @list
+    if @list
+      render json: @list
+    else
+      render json: { errors: "This is not a list, please try again."}
+    end
   end
 
   def update
     if @list.update(list_params)
+      render nothing: true
+    else
+      render json: { errors: "Error updating, please try again."}
     end
   end
 
@@ -19,11 +26,17 @@ class TodoListsController < ApplicationController
     list = TodoList.new(list_params)
     if list.save
       render json: list
+    else
+      render json: { errors: "Error creating, please try again."}
     end
   end
 
   def destroy
-    @list.destroy
+    if @list.destroy
+      render nothing: true
+    else
+      render json: { errors: "Error deleting, please try again"}
+    end
   end
 
 
