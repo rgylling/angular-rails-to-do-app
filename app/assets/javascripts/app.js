@@ -24,6 +24,11 @@
                   templateUrl: 'about.html',
               })
 
+              .state('error', {
+                  url: '/error',
+                  templateUrl: 'error.html',
+              })
+
               .state('lists', {
                   url: '/lists',
                   templateUrl: 'list.html',
