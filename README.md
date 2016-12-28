@@ -1,4 +1,4 @@
-# Rails Task Manager
+# AngularJs with Ruby on Rails To-Do App
 
 This is a Ruby on Rails back-end Angularjs front-end to-do list app. This application is a simple MVC CRUD application using Angularjs to talk to a Ruby on Rails back-end. This is a basic to-do application where you can make to-do lists and to-do's that are associated to those to-do lists.
 
