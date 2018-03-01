@@ -4,7 +4,7 @@ This is a Ruby on Rails back-end Angularjs front-end to-do list app. This applic
 
 ## Installation
 
-Clone this repository, run `bundle install` to install the necessary gems, then run `rails s` to start your server.
+Clone this repository, run `bundle install` to install the necessary gems, `rake db:migrate` then run `rails s` to start your server.
 `
 
 ## Usage
